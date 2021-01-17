@@ -684,7 +684,7 @@ true Pacific/Easter
 false Pacific/Efate
 false Pacific/Enderbury
 false Pacific/Fakaofo
-true Pacific/Fiji
+false Pacific/Fiji
 false Pacific/Funafuti
 false Pacific/Galapagos
 false Pacific/Gambier
@@ -791,10 +791,10 @@ false posixrules
       <ObjectId>12938</ObjectId>
       <Comment>default administrative connection database</Comment>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>591</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1089</IntrospectionStateNumber>
       <Current>1</Current>
-      <Relations>sequence|table|16396|16398|1
-sequence|table|16406|16408|1
+      <Relations>sequence|table|16458|16460|1
+sequence|table|16471|16473|1
 </Relations>
     </database>
     <role id="3" parent="1" name="pg_monitor">
@@ -856,7 +856,7 @@ UC/10
 </Acl>
       <StateNumber>352</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>592</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1090</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="14" parent="2" name="adminpack">
@@ -957,72 +957,72 @@ UC/10
       <HandlerId>335</HandlerId>
       <Type>index</Type>
     </access-method>
-    <sequence id="26" parent="13" name="qualities_id_seq">
-      <ObjectId>16406</ObjectId>
+    <sequence id="26" parent="13" name="notes_id_note_seq">
+      <ObjectId>16471</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>563</StateNumber>
+      <StateNumber>1085</StateNumber>
       <DataType>integer|0s</DataType>
     </sequence>
     <sequence id="27" parent="13" name="users_id_seq">
-      <ObjectId>16396</ObjectId>
+      <ObjectId>16458</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>562</StateNumber>
+      <StateNumber>1082</StateNumber>
       <DataType>integer|0s</DataType>
     </sequence>
-    <table id="28" parent="13" name="qualities">
-      <ObjectId>16408</ObjectId>
+    <table id="28" parent="13" name="notes">
+      <ObjectId>16473</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>563</StateNumber>
+      <StateNumber>1085</StateNumber>
     </table>
     <table id="29" parent="13" name="users">
-      <ObjectId>16398</ObjectId>
+      <ObjectId>16460</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>581</StateNumber>
+      <StateNumber>1085</StateNumber>
     </table>
-    <column id="30" parent="28" name="id">
+    <column id="30" parent="28" name="id_note">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>563</StateNumber>
-      <DefaultExpression>nextval(&apos;qualities_id_seq&apos;::regclass)</DefaultExpression>
+      <StateNumber>1085</StateNumber>
+      <DefaultExpression>nextval(&apos;notes_id_note_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="31" parent="28" name="description">
+    <column id="31" parent="28" name="id_user">
       <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>563</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="32" parent="28" name="user_id">
-      <Position>3</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>563</StateNumber>
+      <StateNumber>1085</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="33" parent="28" name="qualities_pkey">
-      <ObjectId>16412</ObjectId>
-      <StateNumber>563</StateNumber>
-      <ColNames>id</ColNames>
+    <column id="32" parent="28" name="content">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>1085</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="33" parent="28" name="notes_pkey">
+      <ObjectId>16477</ObjectId>
+      <StateNumber>1085</StateNumber>
+      <ColNames>id_note</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
       <AccessMethodId>403</AccessMethodId>
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <key id="34" parent="28" name="qualities_pkey">
-      <ObjectId>16413</ObjectId>
-      <StateNumber>563</StateNumber>
-      <ColNames>id</ColNames>
+    <key id="34" parent="28" name="notes_pkey">
+      <ObjectId>16478</ObjectId>
+      <StateNumber>1085</StateNumber>
+      <ColNames>id_note</ColNames>
       <Primary>1</Primary>
-      <UnderlyingIndexName>qualities_pkey</UnderlyingIndexName>
+      <UnderlyingIndexName>notes_pkey</UnderlyingIndexName>
     </key>
-    <foreign-key id="35" parent="28" name="quality_userid_fk">
-      <ObjectId>16414</ObjectId>
-      <StateNumber>563</StateNumber>
-      <ColNames>user_id</ColNames>
-      <RefTableId>16398</RefTableId>
+    <foreign-key id="35" parent="28" name="fk_notes">
+      <ObjectId>16479</ObjectId>
+      <StateNumber>1085</StateNumber>
+      <ColNames>id_user</ColNames>
+      <RefTableId>16460</RefTableId>
       <RefColPositions>1</RefColPositions>
       <RefTableName>users</RefTableName>
       <RefKeyName>users_pkey</RefKeyName>
@@ -1032,41 +1032,27 @@ UC/10
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>562</StateNumber>
+      <StateNumber>1082</StateNumber>
       <DefaultExpression>nextval(&apos;users_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="37" parent="29" name="name">
+    <column id="37" parent="29" name="username">
       <Position>2</Position>
-      <DataType>varchar(45)|0s</DataType>
+      <DataType>varchar(127)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>562</StateNumber>
+      <StateNumber>1082</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="38" parent="29" name="username">
+    <column id="38" parent="29" name="password">
       <Position>3</Position>
-      <DataType>varchar(45)|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>562</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="39" parent="29" name="user_password">
-      <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>562</StateNumber>
+      <StateNumber>1082</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="40" parent="29" name="user_group">
-      <Position>5</Position>
-      <DataType>varchar(25)|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>562</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <index id="41" parent="29" name="users_pkey">
-      <ObjectId>16402</ObjectId>
-      <StateNumber>562</StateNumber>
+    <index id="39" parent="29" name="users_pkey">
+      <ObjectId>16464</ObjectId>
+      <StateNumber>1082</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
@@ -1074,9 +1060,9 @@ UC/10
       <CollationIds>0</CollationIds>
       <ClassIds>1978</ClassIds>
     </index>
-    <index id="42" parent="29" name="users_username_key">
-      <ObjectId>16404</ObjectId>
-      <StateNumber>562</StateNumber>
+    <index id="40" parent="29" name="users_username_key">
+      <ObjectId>16466</ObjectId>
+      <StateNumber>1082</StateNumber>
       <ColNames>username</ColNames>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
@@ -1084,16 +1070,16 @@ UC/10
       <CollationNames>default</CollationNames>
       <ClassIds>3126</ClassIds>
     </index>
-    <key id="43" parent="29" name="users_pkey">
-      <ObjectId>16403</ObjectId>
-      <StateNumber>562</StateNumber>
+    <key id="41" parent="29" name="users_pkey">
+      <ObjectId>16465</ObjectId>
+      <StateNumber>1082</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>users_pkey</UnderlyingIndexName>
     </key>
-    <key id="44" parent="29" name="users_username_key">
-      <ObjectId>16405</ObjectId>
-      <StateNumber>562</StateNumber>
+    <key id="42" parent="29" name="users_username_key">
+      <ObjectId>16467</ObjectId>
+      <StateNumber>1082</StateNumber>
       <ColNames>username</ColNames>
       <UnderlyingIndexName>users_username_key</UnderlyingIndexName>
     </key>

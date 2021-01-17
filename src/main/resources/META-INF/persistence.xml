@@ -6,7 +6,7 @@
     <persistence-unit name="default">
         <jta-data-source>jdbc/__default</jta-data-source>
         <class>com.ssau.JavaEE_ESA.entities.User</class>
-        <class>com.ssau.JavaEE_ESA.entities.Quality</class>
+        <class>com.ssau.JavaEE_ESA.entities.Notes</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/postgres"/>
